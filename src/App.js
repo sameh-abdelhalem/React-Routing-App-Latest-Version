@@ -1,5 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./components/Root";
+import EditEventPage from "./pages/EditEvent";
+import EditEventPaget from "./pages/EditEvent";
+import EventDetailPage from "./pages/EventDetail";
+import EventPage from "./pages/Events";
 import HomePage from "./pages/Home";
+import NewEventPage from "./pages/NewEvent";
 
 // Challenge / Exercise
 
@@ -27,26 +33,32 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/",
-      element: <HomePage />,
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/events",
+          element: <EventPage />,
+        },
+        {
+          path: "/events/:eventId",
+          element: <EventDetailPage />,
+        },
+        {
+          path: "/events/new",
+          element: <NewEventPage />,
+        },
+        {
+          path: "/events/:eventId/edit",
+          element: <EditEventPage />,
+        },
+      ],
     },
   ]);
-  return;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
