@@ -4,7 +4,7 @@ import RootLayout from "./components/Root";
 import EditEventPage from "./pages/EditEvent";
 import EditEventPaget from "./pages/EditEvent";
 import EventDetailPage from "./pages/EventDetail";
-import EventPage from "./pages/Events";
+import EventPage, { loader as eventsLoader } from "./pages/Events";
 import HomePage from "./pages/Home";
 import NewEventPage from "./pages/NewEvent";
 
@@ -47,15 +47,7 @@ function App() {
             {
               index: true,
               element: <EventPage />,
-              loader: async () => {
-                const response = await fetch("http://localhost:8080/events");
-
-                if (!response.ok) {
-                } else {
-                  const resData = await response.json();
-                  return resData.events;
-                }
-              },
+              loader: eventsLoader,
             },
             {
               path: "/events/:eventId",
