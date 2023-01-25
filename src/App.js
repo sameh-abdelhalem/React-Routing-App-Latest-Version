@@ -3,6 +3,7 @@ import EventsLayout from "./components/EventsLayout";
 import RootLayout from "./components/Root";
 import EditEventPage from "./pages/EditEvent";
 import EditEventPaget from "./pages/EditEvent";
+import ErrorPage from "./pages/Error";
 import EventDetailPage from "./pages/EventDetail";
 import EventPage, { loader as eventsLoader } from "./pages/Events";
 import HomePage from "./pages/Home";
@@ -35,6 +36,7 @@ function App() {
     {
       path: "/",
       element: <RootLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
