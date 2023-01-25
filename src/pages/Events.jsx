@@ -1,20 +1,15 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-const EVENTS = [
-  { id: "e1", description: "book fare" },
-  { id: "e2", description: "Mega R and R" },
-  { id: "e3", description: "Padel Tournament" },
-];
-const EventPage = () => {
+import EventsList from "../components/EventsList";
+
+function EventsPage() {
+  const events = useLoaderData();
   return (
-    <ul>
-      {EVENTS.map((e) => (
-        <li>
-          <Link to={`/events/${e.id}`}>{e.description}</Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <EventsList events={events} />
+    </>
   );
-};
+}
 
-export default EventPage;
+export default EventsPage;
