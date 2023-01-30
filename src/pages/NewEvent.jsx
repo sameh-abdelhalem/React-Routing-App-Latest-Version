@@ -20,6 +20,9 @@ export const action = async ({ request, params }) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(eventData),
   });
+  if (response.status === 422) {
+    return response;
+  }
 
   if (!response.ok) {
     throw json({ message: "could not post event Data" }, { status: 500 });
