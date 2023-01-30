@@ -54,17 +54,23 @@ function App() {
               loader: eventsLoader,
             },
             {
-              path: "/events/:eventId",
-              element: <EventDetailPage />,
+              path: ":eventId",
+              id: "event-detail",
               loader: eventDetailLoader,
+              children: [
+                {
+                  index: true,
+                  element: <EventDetailPage />,
+                },
+                {
+                  path: "edit",
+                  element: <EditEventPage />,
+                },
+              ],
             },
             {
               path: "/events/new",
               element: <NewEventPage />,
-            },
-            {
-              path: "/events/:eventId/edit",
-              element: <EditEventPage />,
             },
           ],
         },
