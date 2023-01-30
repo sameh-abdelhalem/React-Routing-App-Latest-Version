@@ -7,3 +7,6 @@ const EditEventPage = () => {
 };
 
 export default EditEventPage;
+export const action = async ({ params }) => {
+  const eventId = params.eventId;
+};
