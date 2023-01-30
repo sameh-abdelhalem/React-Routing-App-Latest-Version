@@ -4,7 +4,9 @@ import RootLayout from "./components/Root";
 import EditEventPage from "./pages/EditEvent";
 import EditEventPaget from "./pages/EditEvent";
 import ErrorPage from "./pages/Error";
-import EventDetailPage from "./pages/EventDetail";
+import EventDetailPage, {
+  loader as eventDetailLoader,
+} from "./pages/EventDetail";
 import EventPage, { loader as eventsLoader } from "./pages/Events";
 import HomePage from "./pages/Home";
 import NewEventPage from "./pages/NewEvent";
@@ -54,6 +56,7 @@ function App() {
             {
               path: "/events/:eventId",
               element: <EventDetailPage />,
+              loader: eventDetailLoader,
             },
             {
               path: "/events/new",
