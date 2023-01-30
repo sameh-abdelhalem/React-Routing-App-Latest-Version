@@ -9,7 +9,7 @@ import EventDetailPage, {
 } from "./pages/EventDetail";
 import EventPage, { loader as eventsLoader } from "./pages/Events";
 import HomePage from "./pages/Home";
-import NewEventPage from "./pages/NewEvent";
+import NewEventPage, { action as newEventAction } from "./pages/NewEvent";
 
 // Challenge / Exercise
 
@@ -71,6 +71,7 @@ function App() {
             {
               path: "/events/new",
               element: <NewEventPage />,
+              action: newEventAction,
             },
           ],
         },
