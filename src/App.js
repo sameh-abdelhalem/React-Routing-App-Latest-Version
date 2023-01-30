@@ -10,7 +10,9 @@ import EventDetailPage, {
 } from "./pages/EventDetail";
 import EventPage, { loader as eventsLoader } from "./pages/Events";
 import HomePage from "./pages/Home";
-import NewEventPage, { action as newEventAction } from "./pages/NewEvent";
+import NewEventPage from "./pages/NewEvent";
+
+import { action as manipulateEventAction } from "./components/EventForm";
 
 // Challenge / Exercise
 
@@ -67,13 +69,14 @@ function App() {
                 {
                   path: "edit",
                   element: <EditEventPage />,
+                  action: manipulateEventAction,
                 },
               ],
             },
             {
               path: "/events/new",
               element: <NewEventPage />,
-              action: newEventAction,
+              action: manipulateEventAction,
             },
           ],
         },
