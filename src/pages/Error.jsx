@@ -9,7 +9,7 @@ const ErrorPage = () => {
   let message = "Something went Wrong";
 
   if (error.status === 500) {
-    message = JSON.parse(error.data).message;
+    message = error.data.message;
   }
   if (error.status === 404) {
     title = "Not found";
@@ -19,7 +19,6 @@ const ErrorPage = () => {
     <>
       <MainNavigation />
       <PageContent title={title}>
-        {" "}
         <p>{message}</p>
       </PageContent>
     </>

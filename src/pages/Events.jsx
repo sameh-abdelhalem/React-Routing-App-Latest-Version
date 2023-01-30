@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { json, useLoaderData } from "react-router-dom";
 
 import EventsList from "../components/EventsList";
 
@@ -23,9 +23,8 @@ export const loader = async () => {
 
   if (!response.ok) {
     // return { isError: true, message: "Could not fetch events" };
-    throw new Response(JSON.stringify({ message: "Could not find events!!" }), {
-      status: 500,
-    });
+
+    throw json({ message: "Could not fetch events" }, { status: 500 });
   } else {
     return response;
   }
